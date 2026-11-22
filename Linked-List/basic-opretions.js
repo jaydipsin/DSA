@@ -9,13 +9,9 @@ class Node {
 }
 
 class linkedList {
-
-    insertAtStart(){
-        // THis is the head of the linked list class 
-        this.head = null
+    constructor(){
+         this.head = null
     }
-
-
     // helper
     size(){
         let counter = 0;
@@ -83,5 +79,39 @@ class linkedList {
         this.head = this.head.next;
     }
 
+    // Remove at the end
+    removeAtLast(){
+        if(!this.head){
+            return;
+        }
+
+        letcurrent = this.head;
+
+        while(current.next.next !== null){
+            current = current.next;
+        }
+
+        current.next = null;
+    }
+
+    // Print the list
+    printLatestList(){
+        let current = this.head
+        while(current !== null){
+            console.log(current.data, "->");
+            current = current?.next 
+        }
+    }
+
 }
 
+const ll = new linkedList()
+
+// Adding to the start
+ ll.addFirst(3)
+ ll.addFirst(2)
+ ll.addFirst(1)
+ ll.addFirst(0)
+ ll.printLatestList()
+ ll.addAtIndex(6,2)
+ ll.printLatestList()
